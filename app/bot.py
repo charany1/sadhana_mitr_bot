@@ -5,7 +5,7 @@ and response generation with RAG context.
 """
 
 import anthropic
-from langdetect import detect, LangDetectException
+from lingua import Language, LanguageDetectorBuilder
 
 from app.config import (
     ANTHROPIC_API_KEY,
@@ -109,19 +109,30 @@ MENU_MAP = {
 }
 
 
+_lang_detector = LanguageDetectorBuilder.from_languages(
+    Language.ENGLISH, Language.HINDI
+).build()
+
+
 def detect_language(text: str) -> str:
     """Detect if the message is in Hindi or English."""
-    try:
-        lang = detect(text)
-        return "hi" if lang == "hi" else "en"
-    except LangDetectException:
-        return "en"
+    result = _lang_detector.detect_language_of(text)
+    if result == Language.HINDI:
+        return "hi"
+    return "en"
 
 
 def is_greeting(message: str) -> bool:
     """Check if a message is a simple greeting."""
-    words = set(message.lower().strip().split())
-    return bool(words & GREETING_KEYWORDS) and len(words) <= 4
+    text = message.lower().strip()
+    words = set(text.split())
+    if len(words) > 4:
+        return False
+    # Check single-word keywords
+    if words & GREETING_KEYWORDS:
+        return True
+    # Check multi-word phrases
+    return text in GREETING_KEYWORDS
 
 
 def generate_response(user_message: str) -> str:
