@@ -1,0 +1,146 @@
+[
+  {
+    "id": "yoga_classes",
+    "category": "Programme Information",
+    "question": "What yoga classes does Saadho offer?",
+    "answer": "Saadho offers yoga classes in both online and in-person formats. Classes cover various levels and styles. For the current schedule, fee structure, and registration details, please visit our website or write to programs@saadho.org.",
+    "keywords": ["yoga", "class", "classes", "yoga session", "asana"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "yoga_schedule",
+    "category": "Programme Information",
+    "question": "What is the yoga class schedule?",
+    "answer": "Yoga classes are held regularly in both online and in-person formats. Schedules may vary by location and batch. For the latest schedule and to find a class near you, please write to programs@saadho.org.",
+    "keywords": ["schedule", "timing", "time", "when", "yoga time"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "yoga_fees",
+    "category": "Programme Information",
+    "question": "What are the fees for yoga classes?",
+    "answer": "Fee details vary by programme type and format (online/in-person). For the current fee structure and any available concessions, please reach out to programs@saadho.org.",
+    "keywords": ["fee", "fees", "cost", "price", "charges", "payment"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "guided_meditation",
+    "category": "Programme Information",
+    "question": "Tell me about guided meditation sessions.",
+    "answer": "Saadho conducts guided meditation sessions designed for practitioners at all levels. Sessions focus on deepening your inner practice under experienced guidance. For session details, duration, and prerequisites, please write to programs@saadho.org.",
+    "keywords": ["meditation", "guided meditation", "dhyana", "meditate"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "namo_abhyasa",
+    "category": "Programme Information",
+    "question": "What is Namo Abhyasa?",
+    "answer": "Namo Abhyasa is a dedicated programme offered by Saadho. It has specific eligibility criteria and a structured registration process. For the full programme overview, eligibility, and how to register, please write to programs@saadho.org.",
+    "keywords": ["namo abhyasa", "namo", "abhyasa", "abhyas"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "retreats",
+    "category": "Programme Information",
+    "question": "Are there any upcoming retreats?",
+    "answer": "Saadho organises retreats at various locations throughout the year. Retreats include immersive spiritual experiences, guided practices, and community time. For upcoming retreat dates, locations, themes, registration, and accommodation details, please write to programs@saadho.org.",
+    "keywords": ["retreat", "retreats", "upcoming retreat", "residential"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "sunday_satsang",
+    "category": "Programme Information",
+    "question": "How do I join the Sunday Online Satsang?",
+    "answer": "Saadho holds online Satsangs on Sundays with Gurudev. These are open to all seekers. For the joining link, schedule, and topics, please write to programs@saadho.org or check our social media channels for announcements.",
+    "keywords": ["satsang", "sunday satsang", "online satsang", "satsang link", "join satsang"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "travel_satsang",
+    "category": "Programme Information",
+    "question": "What are Travel Satsangs?",
+    "answer": "Saadho organises city-wise Travel Satsangs where Gurudev visits different cities for Satsang gatherings. For the schedule, host city details, registration, and travel guidance, please write to programs@saadho.org.",
+    "keywords": ["travel satsang", "city satsang", "satsang in my city", "gurudev visit"],
+    "routing_email": "programs@saadho.org"
+  },
+  {
+    "id": "ashram_location",
+    "category": "Saadho Ashram",
+    "question": "Where is the Saadho Ashram located?",
+    "answer": "The Saadho Ashram is a peaceful space for seekers. For exact location, directions, and visiting hours, please write to connect@saadho.org.",
+    "keywords": ["ashram", "location", "address", "where", "directions", "how to reach"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "ashram_visit",
+    "category": "Saadho Ashram",
+    "question": "How can I visit the Ashram?",
+    "answer": "Visiting the Saadho Ashram is a beautiful experience. There is a process to plan your visit, including understanding what to expect and making arrangements. For the complete visit process, please write to connect@saadho.org.",
+    "keywords": ["visit ashram", "ashram visit", "come to ashram", "plan visit"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "gurudev_darshan",
+    "category": "Saadho Ashram",
+    "question": "How can I meet Gurudev / get Gurudev Darshan?",
+    "answer": "Meeting Gurudev is a deeply cherished moment for every Sadhak. There is a protocol and scheduling process for Gurudev Darshan. For details on eligibility and scheduling, please write to connect@saadho.org.",
+    "keywords": ["gurudev", "darshan", "meet gurudev", "gurudev meeting", "guru"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "seva",
+    "category": "Saadho Ashram",
+    "question": "How can I do Seva at the Ashram?",
+    "answer": "Seva (selfless service) is a beautiful way to contribute to the Sangha. There are various types of Seva opportunities available at the Ashram and beyond. To learn about available Seva roles and how to apply, please write to seva@saadho.org.",
+    "keywords": ["seva", "volunteer", "volunteering", "service", "help", "contribute"],
+    "routing_email": "seva@saadho.org"
+  },
+  {
+    "id": "ashram_accommodation",
+    "category": "Saadho Ashram",
+    "question": "Is accommodation available at the Ashram?",
+    "answer": "Accommodation facilities may be available at the Ashram for visiting Sadhaks. Availability and process details can be confirmed by writing to connect@saadho.org.",
+    "keywords": ["accommodation", "stay", "room", "lodging", "overnight"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "about_saadho",
+    "category": "General Information",
+    "question": "What is Saadho?",
+    "answer": "Saadho is a spiritual community (Sangha) dedicated to inner growth and transformation under the guidance of Gurudev. Through yoga, meditation, Satsang, and Seva, Saadho offers a path for sincere seekers. Visit our website for more about our mission and Gurudev's teachings.",
+    "keywords": ["saadho", "about", "what is saadho", "mission", "sangha"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "website_social",
+    "category": "General Information",
+    "question": "What is Saadho's website and social media?",
+    "answer": "You can learn more about Saadho on our official website and social media channels. For links and the latest updates, please write to connect@saadho.org.",
+    "keywords": ["website", "social media", "instagram", "youtube", "facebook", "link"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "donations",
+    "category": "General Information",
+    "question": "How can I donate or support Saadho?",
+    "answer": "Your generous support helps sustain Saadho's mission and programmes. For information on donation pathways and how to contribute, please write to connect@saadho.org.",
+    "keywords": ["donate", "donation", "support", "contribute", "financial", "fund"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "contact",
+    "category": "General Information",
+    "question": "How can I contact Saadho?",
+    "answer": "You can reach Saadho through the following channels:\n\n📧 General / Programmes: programs@saadho.org\n📧 Seva & Volunteering: seva@saadho.org\n📧 All Other Queries: connect@saadho.org\n\nWe look forward to hearing from you! 🙏",
+    "keywords": ["contact", "email", "reach", "phone", "connect", "talk to someone"],
+    "routing_email": "connect@saadho.org"
+  },
+  {
+    "id": "register_programme",
+    "category": "Programme Information",
+    "question": "How do I register for a programme?",
+    "answer": "To register for any Saadho programme (yoga, meditation, retreat, Satsang, or Namo Abhyasa), please write to programs@saadho.org with the programme name you are interested in. Our team will guide you through the registration process.",
+    "keywords": ["register", "registration", "sign up", "enroll", "join programme", "how to join"],
+    "routing_email": "programs@saadho.org"
+  }
+]
