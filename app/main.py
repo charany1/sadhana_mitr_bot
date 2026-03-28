@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
     """Initialize the knowledge base on startup."""
     logger.info("Initializing Sadhana Mitra knowledge base...")
     kb = get_knowledge_base()
-    logger.info(f"Knowledge base loaded with {kb.collection.count()} FAQs.")
+    logger.info(f"Knowledge base loaded with {kb.count()} FAQs.")
     yield
     logger.info("Sadhana Mitra shutting down. 🙏")
 
@@ -131,7 +131,7 @@ async def reload_knowledge_base():
     """Reload the knowledge base from the FAQ file (admin endpoint)."""
     kb = get_knowledge_base()
     kb.load_faqs()
-    return {"status": "reloaded", "count": kb.collection.count()}
+    return {"status": "reloaded", "count": kb.count()}
 
 
 @app.post("/api/test")
