@@ -157,16 +157,19 @@ def generate_response(user_message: str) -> str:
     if message in MENU_MAP:
         message = MENU_MAP[message]
 
-    # 3. Search knowledge base
-    kb = get_knowledge_base()
-    results = kb.search(message, top_k=3)
-
-    # 4. Check for sensitive/escalation topics
-    escalation_category = detect_escalation_category(message)
+    # 3. Check for sensitive topics — always escalate immediately
+    escalation_category = detect_escalation_category(user_message)
     if escalation_category == "sensitive":
         return build_escalation_message("sensitive", language)
 
-    # 5. Build context from KB results
+    # 4. Search knowledge base
+    kb = get_knowledge_base()
+    results = kb.search(message, top_k=3)
+
+    # 5. If strong RAG match, use it; otherwise check escalation
+    has_strong_match = results and results[0]["distance"] < 0.6
+
+    # 6. Build context from KB results
     if results:
         context_parts = []
         for r in results:
@@ -180,10 +183,71 @@ def generate_response(user_message: str) -> str:
     else:
         kb_context = "No relevant FAQ found in knowledge base."
 
-    # 6. Call LLM
-    response_text = call_llm(message, kb_context, language)
+    # 7. Call LLM or use simulation mode
+    if not ANTHROPIC_API_KEY:
+        # In simulation: use RAG if strong match, else escalation, else fallback
+        if has_strong_match:
+            response_text = simulate_response(message, results, None, language)
+        elif escalation_category:
+            response_text = build_escalation_message(escalation_category, language)
+        else:
+            response_text = simulate_response(message, results, None, language)
+    else:
+        response_text = call_llm(message, kb_context, language)
 
     return response_text
+
+
+def simulate_response(
+    user_message: str,
+    results: list[dict],
+    escalation_category: str | None,
+    language: str,
+) -> str:
+    """Generate a response using RAG results directly (no LLM needed).
+
+    Used when ANTHROPIC_API_KEY is not set — for testing and simulation.
+    """
+    # If escalation detected, route
+    if escalation_category:
+        return build_escalation_message(escalation_category, language)
+
+    # If we have KB results with a close match
+    if results and results[0]["distance"] < 0.7:
+        best = results[0]
+        answer = best["answer"]
+        email = best["routing_email"]
+
+        if language == "hi":
+            return (
+                f"🙏 नमस्ते!\n\n{answer}\n\n"
+                f"और जानकारी के लिए कृपया *{email}* पर लिखें।\n\n"
+                f"क्या मैं और किसी विषय में सहायता कर सकता/सकती हूँ? 🙏"
+            )
+        return (
+            f"🙏 Namaste!\n\n{answer}\n\n"
+            f"For more details, please write to *{email}*\n\n"
+            f"Is there anything else I can help you with? 🙏"
+        )
+
+    # No good match — general fallback
+    if language == "hi":
+        return (
+            "🙏 नमस्ते! इस विषय पर मेरे पास विस्तृत जानकारी उपलब्ध नहीं है।\n\n"
+            "कृपया हमारी टीम से संपर्क करें:\n"
+            "📧 कार्यक्रम: programs@saadho.org\n"
+            "📧 सेवा: seva@saadho.org\n"
+            "📧 अन्य: connect@saadho.org\n\n"
+            "क्या मैं किसी और विषय में सहायता कर सकता/सकती हूँ? 🙏"
+        )
+    return (
+        "🙏 Namaste! I don't have detailed information on this topic in my knowledge base.\n\n"
+        "Please reach out to our team:\n"
+        "📧 Programmes: programs@saadho.org\n"
+        "📧 Seva: seva@saadho.org\n"
+        "📧 General: connect@saadho.org\n\n"
+        "Is there anything else I can help you with? 🙏"
+    )
 
 
 def call_llm(user_message: str, kb_context: str, language: str) -> str:
